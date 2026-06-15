@@ -2,12 +2,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "statusLine": {
-    "type": "command",
-    "command": "node ~/claude/.claude/statusline-command.js"
-  },
-  "language": "한국어",
-  "effortLevel": "high",
   "hooks": {
     "SessionStart": [
       {
@@ -21,6 +15,24 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/claude/.claude/hooks/slack-notify.sh",
+            "timeout": 10
+          }
+        ]
+      }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node ~/claude/.claude/statusline-command.js"
+  },
+  "language": "한국어",
+  "effortLevel": "high",
+  "skipAutoPermissionPrompt": true
 }
